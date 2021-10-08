@@ -2,7 +2,7 @@
 
 A simple GUI to generate citations for my workplace. 
 
-Problem: I work for an no name government organization. We generate hundreds of reports and analysis products daily. We are requried to cite every source we use on each of these, however, it can be very time consuming to hand type all of these sources. One written product may cite 40 sources as a low estimation.
+Problem: I work for an no name government organization. We generate hundreds of reports and analysis products daily. We are requried to cite every source we use on each of these, however, it can be very time consuming to hand type all of these sources. One written product may cite 40 sources as a low estimation. We do not have access internet access, and thus lack the ability to use already readily available online citatiion generators.
 
 Solution: Make a tool that generates these citations for us. For example, it would be much easier if we could  copy and paste the source information into a desktop GUI-type applciation and it will print out a properly formatted citation according to our internal standards. 
 
