@@ -1,3 +1,4 @@
+package code;
 //  This class is a representation of a citation, according to 
 //  my workplaces internal citation standards.
 
