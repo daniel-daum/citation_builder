@@ -14,3 +14,5 @@ Minimum Viable Product Requirements:
 
 Final note to others: This is my first ever coding project as a self taught individual. I am practicing my use of basic OOP principals and I am using git for the first time
 
+This project is incomplete as of 12 OCT 2021
+

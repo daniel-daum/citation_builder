@@ -5,14 +5,21 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.nio.Buffer;
 
 
 public class Window extends JFrame {
 
-    private JButton enter;
+    private JButton submit;
     private JPanel panelMain;
+
+    private JLabel authorLabel;
+    private JLabel title_classificationLabel;
+    private JLabel titleLabel;
+    private JLabel publisherLabel;
+    private JLabel date_publishedLabel;
+    private JLabel date_accessedLabel;
+    private JLabel linkLabel; 
+    
     private JTextField authorField;
     private JTextField title_classificationField;
     private JTextField titleField;
@@ -20,25 +27,73 @@ public class Window extends JFrame {
     private JTextField date_publishedField;
     private JTextField date_accessedField;
     private JTextField linkField;
-
-    private static final int FRAME_WIDTH = 500;
-    private static final int FRAME_HEIGHT = 200;
+    
+    private final int FIELD_WIDTH = 10;
+    private final int FRAME_WIDTH = 500;
+    private final int FRAME_HEIGHT = 200;
 
     public Window(){
-        createFrame();
-        setSize(FRAME_WIDTH, FRAME_HEIGHT);        
+        createPanel();
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);    
+        
+    }
+
+    public void createPanel(){
+
+        panelMain = new JPanel();
+
+        panelMain.add(createLabel(authorLabel, "Author:"));
+        panelMain.add(createField(authorField, getFieldWidth()));
+
+        panelMain.add(createLabel(title_classificationLabel, "Title Classification:"));
+        panelMain.add(createField(title_classificationField, getFieldWidth()));
+
+        panelMain.add(createLabel(titleLabel, "Title:"));
+        panelMain.add(createField(titleField, getFieldWidth()));
+
+        panelMain.add(createLabel(publisherLabel, "Publishing Organization:"));
+        panelMain.add(createField(publisherField, getFieldWidth()));
+
+        panelMain.add(createLabel(date_publishedLabel, "Date Published:"));
+        panelMain.add(createField(date_publishedField, getFieldWidth()));
+
+        panelMain.add(createLabel(date_accessedLabel, "Date Accessed:"));
+        panelMain.add(createField(date_accessedField, getFieldWidth()));
+
+        panelMain.add(createLabel(linkLabel, "Link:"));
+        panelMain.add(createField(linkField, getFieldWidth()));     
+
+        panelMain.add(createButton(submit, "Submit"));
+    
+        add(panelMain);
+    }
+
+    public JLabel createLabel(JLabel pLabel, String pLabelTitle){
+
+        pLabel = new JLabel(pLabelTitle);
+        
+        return pLabel;
     }
 
 
-    public void createFrame(){
+    public JTextField createField(JTextField pField, int pSize){
 
-       enter = new JButton("Enter");
-       
-       panelMain = new JPanel();
+        pField = new JTextField(pSize);
 
-       panelMain.add(enter);
-       add(panelMain);
+        return pField;
     }
+
+    public JButton createButton(JButton pButton, String pButtonText){
+        pButton = new JButton(pButtonText);
+
+        return pButton;
+    }
+     
+    public int getFieldWidth(){
+        return FIELD_WIDTH;
+    }
+
+
 
 
 }
