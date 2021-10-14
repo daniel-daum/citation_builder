@@ -11,11 +11,13 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class Window extends JFrame implements ActionListener{
 
     private Citation citation;
     private JButton buildButton;
+    private JTextArea textArea; 
     private JPanel gridPanel;
     private JPanel borderPanel;
     private JPanel buttonPanel;
@@ -41,6 +43,8 @@ public class Window extends JFrame implements ActionListener{
     private final int FIELD_WIDTH = 40;
     private final int FRAME_WIDTH = 800;
     private final int FRAME_HEIGHT = 400;
+    private final int ROWS = 1;
+    private final int COLUMNS = 0;
 
     private final String CITATION_CLASSIFICATION = "Citation Classification:";
     private final String ORIGINATOR = "Originator:";
@@ -157,9 +161,12 @@ public class Window extends JFrame implements ActionListener{
             citation.setOverallDocumentClassified(getOverallDocumentClassifiedField().getText());
 
             citation.setBuiltCitation();
-            
-             
-            JOptionPane.showMessageDialog(null, citation.getBuiltCitation());
+
+            setTextArea();
+            textArea.setText(citation.getBuiltCitation());
+            textArea.setEnabled(true);
+
+            JOptionPane.showMessageDialog(null, textArea, "Completed Citation", JOptionPane.INFORMATION_MESSAGE );
 
         }
     }
@@ -292,6 +299,15 @@ public class Window extends JFrame implements ActionListener{
         return overallDocumentClassifiedField;
     }
 
+    public void setTextArea(){
+        textArea = new JTextArea(getROWS(), getCOLUMNS());
+
+    }
+
+    public JTextArea getTextArea(){
+        return textArea;
+    }
+
     public void setBuildButton(String pButtonText){
         buildButton = new JButton(pButtonText);
     }
@@ -346,6 +362,14 @@ public class Window extends JFrame implements ActionListener{
 
     public String getBUILD_BUTTON_TEXT(){
         return BUILD_BUTTON;
+    }
+
+    public int getROWS(){
+        return ROWS;
+    }
+
+    public int getCOLUMNS(){
+        return COLUMNS;
     }
 
 }
