@@ -1,99 +1,350 @@
 package code;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
+public class Window extends JFrame implements ActionListener{
 
-public class Window extends JFrame {
+    private JButton buildButton;
+    private JPanel gridPanel;
+    private JPanel borderPanel;
+    private JPanel buttonPanel;
 
-    private JButton submit;
-    private JPanel panelMain;
+    private JLabel citationClassificationLabel;
+    private JLabel originatorLabel;
+    private JLabel sourceIDLabel;
+    private JLabel dateLabel;
+    private JLabel sourceTitleClassificationLabel;
+    private JLabel sourceTitleLabel;
+    private JLabel citedPortionClassifiedLabel;
+    private JLabel overallDocumentClassifiedLabel;
 
-    private JLabel authorLabel;
-    private JLabel title_classificationLabel;
-    private JLabel titleLabel;
-    private JLabel publisherLabel;
-    private JLabel date_publishedLabel;
-    private JLabel date_accessedLabel;
-    private JLabel linkLabel; 
-    
-    private JTextField authorField;
-    private JTextField title_classificationField;
-    private JTextField titleField;
-    private JTextField publisherField;
-    private JTextField date_publishedField;
-    private JTextField date_accessedField;
-    private JTextField linkField;
-    
+    private JTextField citationClassificationField;
+    private JTextField originatorField; 
+    private JTextField sourceIDField;
+    private JTextField dateField;
+    private JTextField sourceTitleClassificationField;
+    private JTextField sourceTitleField; 
+    private JTextField citedPortionClassifiedField; 
+    private JTextField overallDocumentClassifiedField; 
+
     private final int FIELD_WIDTH = 10;
-    private final int FRAME_WIDTH = 500;
-    private final int FRAME_HEIGHT = 200;
+    private final int FRAME_WIDTH = 800;
+    private final int FRAME_HEIGHT = 400;
 
+    private final String CITATION_CLASSIFICATION = "Citation Classification:";
+    private final String ORIGINATOR = "Originator:";
+    private final String SOURCE_ID = "Source ID:";
+    private final String DATE = "Date:";
+    private final String SOURCE_TITLE_CLASSIFICATION = "Source Title Classification:";
+    private final String SOURCE_TITLE = "Source Title:";
+    private final String CITED_PORTION_CLASSIFIED = "Cited Portion Classified:";
+    private final String OVERALL_DOCUMENT_CLASSIFIED_TEXT = "Overall Document Classified:";
+    private final String BUILD_BUTTON = "Build";
+    
     public Window(){
+        createComponents();
         createPanel();
-        setSize(FRAME_WIDTH, FRAME_HEIGHT);    
+        setSize(getFRAME_WIDTH(),getFRAME_HEIGHT()); 
+
+    }
+
+    public void createComponents(){
+
+        setCitationClassificationLabel(getCITATION_CLASSIFICATION());
+        setCitationClassifiedField(getFIELD_WIDTH());
+
+        setOriginatorLabel(getORIGINATOR());
+        setOriginatorField(getFIELD_WIDTH());
+
+        setSourceIDLabel(getSOURCE_ID());
+        setSourceIDField(getFIELD_WIDTH());
+
+        setDateLabel(getDATE());
+        setDateField(getFIELD_WIDTH());
+
+        setSourceTitleClassificationLabel(getSOURCE_TITLE_CLASSIFICATION());
+        setSourceTitleClassificationField(getFIELD_WIDTH());
+
+        setSourceTitleLabel(getSOURCE_TITLE());
+        setSourceTitleField(getFIELD_WIDTH());
+
+        setCitedPortionClassifiedLabel(getCITED_PORTION_CLASSIFIED());
+        setCitedPortionClassifiedField(getFIELD_WIDTH());
+
+        setOverallDocumentClassifiedLabel(getOVERALL_DOCUMENT_CLASSIFIED());
+        setOverallDocumentClassifiedField(getFIELD_WIDTH());
+
+        setBuildButton(getBUILD_BUTTON_TEXT());
         
+        //Setting Horizontal Text Alignment for all JLabels
+
+        getCitationClassificationLabel().setHorizontalAlignment(JLabel.CENTER);
+        getOriginatorLabel().setHorizontalAlignment(JLabel.CENTER);
+        getSourceIDLabel().setHorizontalAlignment(JLabel.CENTER);
+        getDateLabel().setHorizontalAlignment(JLabel.CENTER);
+        getSourceTitleClassificationLabel().setHorizontalAlignment(JLabel.CENTER);
+        getSourceTitleLabel().setHorizontalAlignment(JLabel.CENTER);
+        getCitedPortionClassifiedLabel().setHorizontalAlignment(JLabel.CENTER);
+        getOverallDocumentClassifiedLabel().setHorizontalAlignment(JLabel.CENTER);
     }
 
     public void createPanel(){
 
-        panelMain = new JPanel();
+        gridPanel = new JPanel(new GridLayout(8,2,0,10));
 
-        panelMain.add(createLabel(authorLabel, "Author:"));
-        panelMain.add(createField(authorField, getFieldWidth()));
+        gridPanel.add(getCitationClassificationLabel());
+        gridPanel.add(getCitationClassifiedField());
 
-        panelMain.add(createLabel(title_classificationLabel, "Title Classification:"));
-        panelMain.add(createField(title_classificationField, getFieldWidth()));
+        gridPanel.add(getOriginatorLabel());
+        gridPanel.add(getOriginatorField());
 
-        panelMain.add(createLabel(titleLabel, "Title:"));
-        panelMain.add(createField(titleField, getFieldWidth()));
+        gridPanel.add(getSourceIDLabel());
+        gridPanel.add(getSourceIDField());
 
-        panelMain.add(createLabel(publisherLabel, "Publishing Organization:"));
-        panelMain.add(createField(publisherField, getFieldWidth()));
+        gridPanel.add(getDateLabel());
+        gridPanel.add(getDateField());
 
-        panelMain.add(createLabel(date_publishedLabel, "Date Published:"));
-        panelMain.add(createField(date_publishedField, getFieldWidth()));
+        gridPanel.add(getSourceTitleClassificationLabel());
+        gridPanel.add(getSourceTitleClassificationField());
 
-        panelMain.add(createLabel(date_accessedLabel, "Date Accessed:"));
-        panelMain.add(createField(date_accessedField, getFieldWidth()));
+        gridPanel.add(getSourceTitleLabel());
+        gridPanel.add(getSourceTitleField());
 
-        panelMain.add(createLabel(linkLabel, "Link:"));
-        panelMain.add(createField(linkField, getFieldWidth()));     
+        gridPanel.add(getCitedPortionClassifiedLabel());
+        gridPanel.add(getCitedPortionClassifiedField());
 
-        panelMain.add(createButton(submit, "Submit"));
-    
-        add(panelMain);
-    }
+        gridPanel.add(getOverallDocumentClassifiedLabel());
+        gridPanel.add(getOverallDocumentClassifiedField());
 
-    public JLabel createLabel(JLabel pLabel, String pLabelTitle){
+        buttonPanel = new JPanel();
+        getBuildButton().addActionListener(this);
+        buttonPanel.add(getBuildButton());        
 
-        pLabel = new JLabel(pLabelTitle);
+        borderPanel = new JPanel();
+        borderPanel.setLayout(new BorderLayout());
+        borderPanel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+        borderPanel.add(gridPanel, BorderLayout.CENTER);
+        borderPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        add(borderPanel);     
         
-        return pLabel;
     }
 
+    @Override
+    public void actionPerformed(ActionEvent pEvent){
+        if(pEvent.getActionCommand().equals("Build")){
 
-    public JTextField createField(JTextField pField, int pSize){
+            JOptionPane.showMessageDialog(null, "test");
 
-        pField = new JTextField(pSize);
-
-        return pField;
+        }
     }
 
-    public JButton createButton(JButton pButton, String pButtonText){
-        pButton = new JButton(pButtonText);
-
-        return pButton;
+    public void setCitationClassificationLabel(String pLabelText){
+        citationClassificationLabel = new JLabel(pLabelText);
     }
-     
-    public int getFieldWidth(){
+
+    public JLabel getCitationClassificationLabel(){
+        return citationClassificationLabel;
+    }
+
+    public void setOriginatorLabel(String pLabelText){
+        originatorLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getOriginatorLabel(){
+        return originatorLabel;
+    }
+
+    public void setSourceIDLabel(String pLabelText){
+        sourceIDLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getSourceIDLabel(){
+        return sourceIDLabel;
+    }
+
+    public void setDateLabel(String pLabelText){
+        dateLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getDateLabel(){
+        return dateLabel;
+    }
+
+    public void setSourceTitleClassificationLabel(String pLabelText){
+        sourceTitleClassificationLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getSourceTitleClassificationLabel(){
+        return sourceTitleClassificationLabel;
+    }
+
+    public void setSourceTitleLabel(String pLabelText){
+        sourceTitleLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getSourceTitleLabel(){
+        return sourceTitleLabel;
+    }
+
+    public void setCitedPortionClassifiedLabel(String pLabelText){
+        citedPortionClassifiedLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getCitedPortionClassifiedLabel(){
+        return citedPortionClassifiedLabel;
+    }
+
+    public void setOverallDocumentClassifiedLabel(String pLabelText){
+        overallDocumentClassifiedLabel = new JLabel(pLabelText);
+    }
+
+    public JLabel getOverallDocumentClassifiedLabel(){
+        return overallDocumentClassifiedLabel;
+    }
+
+    public void setCitationClassifiedField(int pFieldWidth){
+        citationClassificationField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getCitationClassifiedField(){
+        return citationClassificationField;
+    }
+
+    public void setOriginatorField(int pFieldWidth){
+        originatorField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getOriginatorField(){
+        return originatorField;
+    }
+
+    public void setSourceIDField(int pFieldWidth){
+        sourceIDField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getSourceIDField(){
+        return sourceIDField;
+    }
+
+    public void setDateField(int pFieldWidth){
+        dateField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getDateField(){
+        return dateField;
+    }
+
+    public void setSourceTitleClassificationField(int pFieldWidth){
+        sourceTitleClassificationField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getSourceTitleClassificationField(){
+        return sourceTitleClassificationField;
+    }
+
+    public void setSourceTitleField(int pFieldWidth){
+        sourceTitleField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getSourceTitleField(){
+        return sourceTitleField;
+    }
+
+    public void setCitedPortionClassifiedField(int pFieldWidth){
+        citedPortionClassifiedField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getCitedPortionClassifiedField(){
+        return citedPortionClassifiedField;
+    }
+
+    public void setOverallDocumentClassifiedField(int pFieldWidth){
+        overallDocumentClassifiedField = new JTextField(pFieldWidth);
+    }
+
+    public JTextField getOverallDocumentClassifiedField(){
+        return overallDocumentClassifiedField;
+    }
+
+    public void setBuildButton(String pButtonText){
+        buildButton = new JButton(pButtonText);
+    }
+
+    public JButton getBuildButton(){
+        return buildButton;
+    }
+
+    public int getFIELD_WIDTH(){
         return FIELD_WIDTH;
     }
+
+    public int getFRAME_WIDTH(){
+        return FRAME_WIDTH;
+    }
+
+    public int getFRAME_HEIGHT(){
+        return FRAME_HEIGHT;
+    }
+
+    public String getCITATION_CLASSIFICATION(){
+        return CITATION_CLASSIFICATION;
+    }
+
+    public String getORIGINATOR(){
+        return ORIGINATOR;
+    }
+
+    public String getSOURCE_ID(){
+        return SOURCE_ID;
+    }
+
+    public String getDATE(){
+        return DATE;
+    }
+
+    public String getSOURCE_TITLE_CLASSIFICATION(){
+        return SOURCE_TITLE_CLASSIFICATION;
+    }
+
+    public String getSOURCE_TITLE(){
+        return SOURCE_TITLE;
+    }
+
+    public String getCITED_PORTION_CLASSIFIED(){
+        return CITED_PORTION_CLASSIFIED;
+    }
+
+    public String getOVERALL_DOCUMENT_CLASSIFIED(){
+        return OVERALL_DOCUMENT_CLASSIFIED_TEXT;
+    }
+
+    public String getBUILD_BUTTON_TEXT(){
+        return BUILD_BUTTON;
+    }
+
+
+
+
+   
+
+
+
+
 
 
 
 
 }
+
