@@ -147,28 +147,40 @@ public class Window extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent pEvent){
+        
         if(pEvent.getActionCommand().equals("Build")){
-
+             
             citation = new Citation();
 
-            citation.setCitationClassification(getCitationClassifiedField().getText());
-            citation.setOriginator(getOriginatorField().getText());
-            citation.setSourceID(getSourceIDField().getText());
-            citation.setDate(getDateField().getText());
-            citation.setTitleClassification(getSourceTitleClassificationField().getText());
-            citation.setTitle(getSourceTitleField().getText());
-            citation.setCitedPortionClassified(getCitedPortionClassifiedField().getText());
-            citation.setOverallDocumentClassified(getOverallDocumentClassifiedField().getText());
+            citation.setCitationClassification(getCitationClassifiedField().getText().trim());
+            citation.setOriginator(getOriginatorField().getText().trim());
+            citation.setSourceID(getSourceIDField().getText().trim());
+            citation.setDate(getDateField().getText().trim());
+            citation.setTitleClassification(getSourceTitleClassificationField().getText().trim());
+            citation.setTitle(getSourceTitleField().getText().trim());
+            citation.setCitedPortionClassified(getCitedPortionClassifiedField().getText().trim());
+            citation.setOverallDocumentClassified(getOverallDocumentClassifiedField().getText().trim());
 
-            citation.setBuiltCitation();
+           citation.setBuiltCitation();
 
-            setTextArea();
+           if(citation.getNullStatus()){
+            
+            JOptionPane.showMessageDialog(null, "No citation information has been entered.", "Notification", JOptionPane.INFORMATION_MESSAGE );
+
+
+           }
+           else{   setTextArea();
             textArea.setText(citation.getBuiltCitation());
             textArea.setEnabled(true);
 
             JOptionPane.showMessageDialog(null, textArea, "Completed Citation", JOptionPane.INFORMATION_MESSAGE );
 
+           }
         }
+
+         
+                
+        
     }
 
     public void setCitationClassificationLabel(String pLabelText){
