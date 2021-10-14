@@ -11,6 +11,7 @@ public class Citation {
     private String citedPortionClassified;
     private String overallDocumentClassified; 
     private String builtCitation;
+    private boolean isNull = false; 
     
     public Citation(){
         
@@ -108,6 +109,18 @@ public class Citation {
 
         return result;
 
+    }
+
+    public void checkNull(){
+        if(getCitationClassification().equals("") && getOriginator().equals("") && getSourceID().equals("") && getDate().equals("") && getTitleClassification().equals("") && getTitle().equals("") && getCitedPortionClassified().equals("") && getOverallDocumentClassified().equals("")){
+
+            isNull = true;
+        }
+    }
+
+    public boolean getNullStatus(){
+        checkNull();
+        return isNull;
     }
 
 
