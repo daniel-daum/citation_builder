@@ -1,6 +1,5 @@
 package code;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
@@ -15,11 +14,12 @@ import javax.swing.JOptionPane;
 
 public class Window extends JFrame implements ActionListener{
 
+    private Citation citation;
     private JButton buildButton;
     private JPanel gridPanel;
     private JPanel borderPanel;
     private JPanel buttonPanel;
-
+    
     private JLabel citationClassificationLabel;
     private JLabel originatorLabel;
     private JLabel sourceIDLabel;
@@ -38,7 +38,7 @@ public class Window extends JFrame implements ActionListener{
     private JTextField citedPortionClassifiedField; 
     private JTextField overallDocumentClassifiedField; 
 
-    private final int FIELD_WIDTH = 10;
+    private final int FIELD_WIDTH = 40;
     private final int FRAME_WIDTH = 800;
     private final int FRAME_HEIGHT = 400;
 
@@ -145,7 +145,21 @@ public class Window extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent pEvent){
         if(pEvent.getActionCommand().equals("Build")){
 
-            JOptionPane.showMessageDialog(null, "test");
+            citation = new Citation();
+
+            citation.setCitationClassification(getCitationClassifiedField().getText());
+            citation.setOriginator(getOriginatorField().getText());
+            citation.setSourceID(getSourceIDField().getText());
+            citation.setDate(getDateField().getText());
+            citation.setTitleClassification(getSourceTitleClassificationField().getText());
+            citation.setTitle(getSourceTitleField().getText());
+            citation.setCitedPortionClassified(getCitedPortionClassifiedField().getText());
+            citation.setOverallDocumentClassified(getOverallDocumentClassifiedField().getText());
+
+            citation.setBuiltCitation();
+            
+             
+            JOptionPane.showMessageDialog(null, citation.getBuiltCitation());
 
         }
     }
@@ -333,18 +347,6 @@ public class Window extends JFrame implements ActionListener{
     public String getBUILD_BUTTON_TEXT(){
         return BUILD_BUTTON;
     }
-
-
-
-
-   
-
-
-
-
-
-
-
 
 }
 

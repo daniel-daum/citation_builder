@@ -1,87 +1,115 @@
 package code;
-//  This class is a representation of a citation, according to 
-//  my workplaces internal citation standards.
 
-public class Citation{
+public class Citation {
 
-    private String mAuthor;
-    private String mTitle_classification;
-    private String mTitle;
-    private String mPublisher;
-    private String mDate_published;
-    private String mDate_accessed;
-    private String mlink; 
-
+    private String citationClassification;
+    private String originator;
+    private String sourceID;
+    private String date;
+    private String titleClassification;
+    private String title; 
+    private String citedPortionClassified;
+    private String overallDocumentClassified; 
+    private String builtCitation;
+    
     public Citation(){
-
+        
     }
 
-    public Citation(String pAuthor, String pTitle_classification, String pTitle, String pPublisher, String pDate_published, String pDate_accessed, String pLink){
-        setAuthor(pAuthor);
-        setTitle_classification(pTitle_classification);
+    public Citation(String pCitationClassification, String pOriginator, String pSourceID, String pDate, String pTitleClassification, String pTitle, String pCitedPortionClassified, String pOverallDocumentClassified){
+        setCitationClassification(pCitationClassification);
+        setOriginator(pOriginator);
+        setSourceID(pSourceID);
+        setDate(pDate);
+        setTitleClassification(pTitleClassification);
         setTitle(pTitle);
-        setPublisher(pPublisher);
-        setDate_published(pDate_published);
-        setDate_accessed(pDate_accessed);
-        setLink(pLink);
+        setCitationClassification(pCitationClassification);
+        setOverallDocumentClassified(pOverallDocumentClassified);
 
     }
 
-    public void setAuthor(String pAuthor){
-        mAuthor = pAuthor;
+    public void setCitationClassification(String pCitationClassification){
+        citationClassification = pCitationClassification;
     }
 
-    public String getAuthor(){
-        return mAuthor;
+    public String getCitationClassification(){
+        return citationClassification;
     }
 
-    public void setTitle_classification(String pTitle_classifcation){
-        mTitle_classification = pTitle_classifcation;
+    public void setOriginator(String pOriginator){
+        originator = pOriginator;
     }
 
-    public String getTitle_classification(){
-        return mTitle_classification;
+    public String getOriginator(){
+        return originator;
+    }
+
+    public void setSourceID(String pSourceID){
+        sourceID = pSourceID;
+    }
+
+    public String getSourceID(){
+        return sourceID;
+    }
+
+    public void setDate(String pDate){
+        date = pDate;
+    }
+
+    public String getDate(){
+        return date;
+    }
+
+    public void setTitleClassification(String pTitleClassification){
+        titleClassification = pTitleClassification;
+    }
+
+    public String getTitleClassification(){
+        return titleClassification;
     }
 
     public void setTitle(String pTitle){
-        mTitle = pTitle;
+        title = pTitle;
     }
 
     public String getTitle(){
-        return mTitle;
+        return title;
     }
 
-    public void setPublisher(String pPublisher){
-        mPublisher = pPublisher;
+    public void setCitedPortionClassified(String pCitedPortionClassified){
+        citedPortionClassified = pCitedPortionClassified;
     }
 
-    public String getPublisher(){
-        return mPublisher;
+    public String getCitedPortionClassified(){
+        return citedPortionClassified;
     }
 
-    public void setDate_published(String pDate_published){
-        mDate_published = pDate_published;
+    public void setOverallDocumentClassified(String pOverallDocumentClassifed){
+        overallDocumentClassified = pOverallDocumentClassifed;
     }
 
-    public String getDate_published(){
-        return mDate_published;
+    public String getOverallDocumentClassified(){
+        return overallDocumentClassified;
     }
 
-    public void setDate_accessed(String pDate_accessed){
-        mDate_accessed = pDate_accessed;
+    public void setBuiltCitation(){
+        builtCitation = buildCitation();
+
     }
 
-    public String getDate_accessed(){
-        return mDate_accessed;
+    public String getBuiltCitation(){
+        return builtCitation;
     }
 
-    public void setLink(String pLink){
-        mlink = pLink;
+    public String buildCitation(){
+        String result = "";
+
+        result = getCitationClassification() + " " + getOriginator() + ", " + getSourceID() + ", " + getDate() + ", " + getTitleClassification() + " " + getTitle() + ", cited portion classified: " + getCitedPortionClassified() + ", overall document classified: " + getOverallDocumentClassified();
+
+        return result;
+
     }
 
-    public String getLink(){
-        return mlink;
-    }
 
 
 }

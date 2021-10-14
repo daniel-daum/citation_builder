@@ -6,11 +6,11 @@ public class Main {
 
        public static void main(String[] args){
         
-        generateWindow();
+       run();
 
     }
 
-    public static void generateWindow(){
+    public static void run(){
 
         JFrame app = new Window();
         
