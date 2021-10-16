@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "citation_builder/src",
+        "src"
+    ],
+    "java.project.outputPath": "bin"
+}
