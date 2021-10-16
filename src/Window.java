@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 
 public class Window extends JFrame implements ActionListener{
 
+    //test
+
     private Citation citation;
     private JButton buildButton;
     private JTextArea textArea; 
