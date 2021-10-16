@@ -1,5 +1,6 @@
 
 public class Citation {
+    //This class is intended to represent a citation in my organization.
 
     private String citationClassification;
     private String originator;
@@ -28,6 +29,7 @@ public class Citation {
 
     }
 
+    //Accessor and Mutator Methods
     public void setCitationClassification(String pCitationClassification){
         citationClassification = pCitationClassification;
     }
@@ -102,6 +104,7 @@ public class Citation {
     }
 
     public String buildCitation(){
+        //This method builds the Citation by adding all of the object attribute strings togeather. 
         String result = "";
 
         result = getCitationClassification() + " " + getOriginator() + ", " + getSourceID() + ", " + getDate() + ", " + getTitleClassification() + " " + getTitle() + ", cited portion classified: " + getCitedPortionClassified() + ", overall document classified: " + getOverallDocumentClassified();
@@ -111,6 +114,7 @@ public class Citation {
     }
 
     public void checkNull(){
+        //This returns true if each atrubute of the citation isntance is null.
         if(getCitationClassification().equals("") && getOriginator().equals("") && getSourceID().equals("") && getDate().equals("") && getTitleClassification().equals("") && getTitle().equals("") && getCitedPortionClassified().equals("") && getOverallDocumentClassified().equals("")){
 
             isNull = true;
@@ -118,6 +122,7 @@ public class Citation {
     }
 
     public boolean getNullStatus(){
+        //Calls check null to retrun if the Citation object attributes are  null.
         checkNull();
         return isNull;
     }
