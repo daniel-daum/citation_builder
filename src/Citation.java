@@ -84,8 +84,8 @@ public class Citation {
         return citedPortionClassified;
     }
 
-    public void setOverallDocumentClassified(String pOverallDocumentClassifed){
-        overallDocumentClassified = pOverallDocumentClassifed;
+    public void setOverallDocumentClassified(String pOverallDocumentClassified){
+        overallDocumentClassified = pOverallDocumentClassified;
     }
 
     public String getOverallDocumentClassified(){
