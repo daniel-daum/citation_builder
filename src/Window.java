@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 
 public class Window extends JFrame implements ActionListener{
 
+    //This class creates the GUI window.
+
     private Citation citation;
     private JButton buildButton;
     private JTextArea textArea; 
@@ -57,13 +59,16 @@ public class Window extends JFrame implements ActionListener{
     private final String BUILD_BUTTON = "Build";
     
     public Window(){
-        createComponents();
-        createPanel();
-        setSize(getFRAME_WIDTH(),getFRAME_HEIGHT()); 
+        //Constructor for this class. 
+
+        createComponents(); //This method creates the label, textfield, and button components.\
+        createPanel(); //This method adds those components onto a JPanel, and packs the JPanel on the JFrame.
+        setSize(getFRAME_WIDTH(),getFRAME_HEIGHT()); //Sets the JFrame width and height.
 
     }
 
     public void createComponents(){
+        //This method creates the JLabel and JText Field Objects Using getters and setters.
 
         setCitationClassificationLabel(getCITATION_CLASSIFICATION());
         setCitationClassifiedField(getFIELD_WIDTH());
@@ -104,6 +109,7 @@ public class Window extends JFrame implements ActionListener{
     }
 
     public void createPanel(){
+        //This method packs the JLabel, JTextField, and JButton object onto JPanels, Then adds it to the JFrame.
 
         gridPanel = new JPanel(new GridLayout(8,2,0,10));
 
@@ -145,10 +151,13 @@ public class Window extends JFrame implements ActionListener{
         
     }
 
+    //Action Listener for the Build Citation BUtton. Implements button logic.
     @Override
     public void actionPerformed(ActionEvent pEvent){
+        //Activates when the Build button is clicked.
         
         if(pEvent.getActionCommand().equals("Build")){
+            //Generates a Citation Object. Uses the .getText() to initalize the attribute for this citation instance.
              
             citation = new Citation();
 
@@ -162,13 +171,17 @@ public class Window extends JFrame implements ActionListener{
             citation.setOverallDocumentClassified(getOverallDocumentClassifiedField().getText().trim());
 
            citation.setBuiltCitation();
-
+           
+        
            if(citation.getNullStatus()){
+               //This method checks if all the text fields are null, if true, then it prompts the user to enter information.
             
             JOptionPane.showMessageDialog(null, "No citation information has been entered.", "Notification", JOptionPane.INFORMATION_MESSAGE );
 
 
            }
+           //Creates a Texfield object, and displays the constructred citation using a JTextfield packed onto a JOptionPane.
+    
            else{   setTextArea();
             textArea.setText(citation.getBuiltCitation());
             textArea.setEnabled(true);
@@ -183,6 +196,7 @@ public class Window extends JFrame implements ActionListener{
         
     }
 
+    //Accessor and Mutator methods for the windows class.
     public void setCitationClassificationLabel(String pLabelText){
         citationClassificationLabel = new JLabel(pLabelText);
     }
