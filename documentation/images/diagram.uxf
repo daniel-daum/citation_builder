@@ -1,0 +1,22 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>390</w><h>550</h></coordinates><panel_attributes>Citation Class
+--
+- citationClassification: String; 
+- originator: String;
+- sourceID: String;
+- date: String;
+- titleClassification: String;
+- title: String; 
+- citedPortionClassified: String; 
+- overallDocumentClassified: String;
+- builtCitation: String;
+- isNull: boolean; 
+--
+&lt;&lt;Constructor&gt;&gt;
++ Citation() 
++ setCitationClassification(String pOriginator): void
++ getCitationClassification(): String
++ setOriginator(): void
+--
+Responsibilities
+-- Resp1
+*-- Resp2</panel_attributes><additional_attributes></additional_attributes></element></diagram>

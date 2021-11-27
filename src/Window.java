@@ -91,7 +91,7 @@ public class Window extends JFrame implements ActionListener{
 
         setBuildButton(getBUILD_BUTTON_TEXT());
         
-        //Setting Horizontal Text Alignment for all JLabels
+        //Setting Horizontal Text Alignment for all JLabels to CENTER
 
         getCitationClassificationLabel().setHorizontalAlignment(JLabel.CENTER);
         getOriginatorLabel().setHorizontalAlignment(JLabel.CENTER);
