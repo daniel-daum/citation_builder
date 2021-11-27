@@ -14,5 +14,7 @@ Minimum Viable Product Requirements:
 
 Final note to others: This is my first ever coding project as a self taught individual. I am practicing my use of basic OOP principals and I am using git for the first time
 
-This project is incomplete as of 12 OCT 2021
+EDIT: Data Findings. On average it takes about a minute plus or minus 10 seconds for a memeber in my workplace to generate a citation by hand, based on a sample of 10 people. 
+
+On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) to generate a citaiton using this citation builder. This simple tool effectively cuts citation time in half for my workplace.
 
