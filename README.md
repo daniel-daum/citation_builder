@@ -18,3 +18,4 @@ EDIT: Data Findings. On average it takes about a minute plus or minus 10 seconds
 
 On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) to generate a citaiton using this citation builder. This simple tool effectively cuts citation time in half for my workplace.
 
+ ![Image of the GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder.png?raw=true)
