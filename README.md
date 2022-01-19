@@ -11,9 +11,6 @@ Minimum Viable Product Requirements:
 1) This application must be able to take source information as input and output a properly formatted citation (This citation format is an internal standard).
 2) This application must be a desktop based GUI. For reasons, Web applications are not a viable solution. 
 
-
-Final note to others: This is my first ever coding project as a self taught individual. I am practicing my use of basic OOP principals and I am using git for the first time
-
 EDIT: Data Findings. On average it takes about a minute plus or minus 10 seconds for a member in my workplace to generate a citation by hand, based on a sample of 10 people. 
 
 On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) to generate a citaiton using this citation builder. This simple tool effectively cuts citation time in half for my workplace.
@@ -22,4 +19,5 @@ On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) t
  ![Image of the GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder.png?raw=true)
  
 ## Final Note
-This is not intended to be used by individuals outside my workplace. If the .Jar does not run on your system that is intentional. This is posted here merely for versioning, storage, and portfolio purposes.
+This is not intended to be used by individuals outside my workplace. If the .Jar does not run on your system that is intentional. This is posted here merely for versioning, storage, and portfolio purposes. Additionally, This is my first ever coding project as a self taught individual. I am practicing my use of basic OOP principals and I am using git for the first time
+
