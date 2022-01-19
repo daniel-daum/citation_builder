@@ -22,4 +22,4 @@ On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) t
  ![Image of the GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder.png?raw=true)
  
 ## Final Note
-This is not intended to be used by the public.
+This is not intended to be used by individuals outside my workplace. If the .Jar does not run on your system that is intentional. This is posted here merely for versioning, storage, and portfolio purposes.
