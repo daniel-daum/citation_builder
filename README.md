@@ -1,6 +1,6 @@
 # citation_builder
 
-A simple GUI to generate citations for my workplace. 
+ A simple GUI to generate citations for my workplace. 
 
 Problem: I work for an no name government organization. We generate hundreds of reports and analysis products daily. We are required to cite every source we use on each of these, however, it can be very time consuming to hand type all of these sources. One written product may cite 40 sources as a low estimation. We do not have access to the internet, and thus lack the ability to use already readily available online citation generators.
 
@@ -14,8 +14,12 @@ Minimum Viable Product Requirements:
 
 Final note to others: This is my first ever coding project as a self taught individual. I am practicing my use of basic OOP principals and I am using git for the first time
 
-EDIT: Data Findings. On average it takes about a minute plus or minus 10 seconds for a memeber in my workplace to generate a citation by hand, based on a sample of 10 people. 
+EDIT: Data Findings. On average it takes about a minute plus or minus 10 seconds for a member in my workplace to generate a citation by hand, based on a sample of 10 people. 
 
 On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) to generate a citaiton using this citation builder. This simple tool effectively cuts citation time in half for my workplace.
 
+## Depiction of the GUI
  ![Image of the GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder.png?raw=true)
+ 
+## Final Note
+This is not intended to be used by the public.
