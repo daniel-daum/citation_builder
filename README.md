@@ -17,6 +17,8 @@ On average it takes those same 10 people 30 seconds (plus or minus ~6 seconds) t
 
 ## Depiction of the GUI
  ![Image of the GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder.png?raw=true)
+ ![Second Image of GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder_example.png)
+ ![Third image of GUI](https://github.com/daniel-daum/citation_builder/blob/main/documentation/images/citation_builder_final.png)
  
 ## Final Note
 This is not intended to be used by individuals outside my workplace. If the .Jar does not run on your system that is intentional. This is posted here merely for versioning, storage, and portfolio purposes. Additionally, This is my first ever coding project as a self taught individual. I am practicing my use of basic OOP principals and I am using git for the first time
